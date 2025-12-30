@@ -84,7 +84,7 @@ return(
           <td>{dealer['zip']}</td>
           <td>{dealer['state']}</td>
           {isLoggedIn ? (
-            <td><a href={`/postreview/${dealer['id']}`}><img src={review_icon} className="review_icon" alt="Post Review"/></a></td>
+            <td><Link to={`/postreview/${dealer['id']}`}><img src={review_icon} className="review_icon" alt="Post Review"/></Link></td>
            ):<></>
           }
         </tr>

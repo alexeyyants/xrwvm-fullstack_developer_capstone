@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import "./Dealers.css";
 import "../assets/style.css";
 import Header from '../Header/Header';
 
 
 const PostReview = () => {
+  const navigate = useNavigate();
   const [dealer, setDealer] = useState({});
   const [review, setReview] = useState("");
   const [model, setModel] = useState();
@@ -58,7 +59,9 @@ const PostReview = () => {
 
   const json = await res.json();
   if (json.status === 200) {
-      window.location.href = window.location.origin+"/dealer/"+id;
+      navigate(`/dealer/${id}`);
+  } else {
+      alert("Failed to post review");
   }
 
   }
@@ -69,9 +72,7 @@ const PostReview = () => {
     const retobj = await res.json();
     
     if(retobj.status === 200) {
-      let dealerobjs = Array.from(retobj.dealer)
-      if(dealerobjs.length > 0)
-        setDealer(dealerobjs[0])
+      setDealer(retobj.dealer)
     }
   }
 
@@ -110,7 +111,7 @@ const PostReview = () => {
       </div >
 
       <div className='input_field'>
-      Car Year <input type="int" onChange={(e) => setYear(e.target.value)} max={2023} min={2015}/>
+      Car Year <input type="number" onChange={(e) => setYear(e.target.value)} max={2023} min={2015}/>
       </div>
 
       <div>
