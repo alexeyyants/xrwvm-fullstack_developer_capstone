@@ -8,6 +8,7 @@ const Header = () => {
     let logout_url = window.location.origin+"/djangoapp/logout";
     const res = await fetch(logout_url, {
       method: "GET",
+      credentials: 'include'
     });
   
     const json = await res.json();

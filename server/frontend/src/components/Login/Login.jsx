@@ -23,6 +23,7 @@ const Login = ({ onClose }) => {
             "userName": userName,
             "password": password
         }),
+        credentials: 'include'
     });
     
     const json = await res.json();
