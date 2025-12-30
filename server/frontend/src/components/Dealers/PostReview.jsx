@@ -55,6 +55,7 @@ const PostReview = () => {
           "Content-Type": "application/json",
       },
       body: jsoninput,
+      credentials: 'include'
   });
 
   const json = await res.json();
