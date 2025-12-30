@@ -3,6 +3,7 @@ import "./Dealers.css";
 import "../assets/style.css";
 import Header from '../Header/Header';
 import review_icon from "../assets/reviewicon.png"
+import { Link } from 'react-router-dom';
 
 const Dealers = () => {
   const [dealersList, setDealersList] = useState([]);
@@ -77,7 +78,7 @@ return(
      {dealersList.map(dealer => (
         <tr>
           <td>{dealer['id']}</td>
-          <td><a href={'/dealer/'+dealer['id']}>{dealer['full_name']}</a></td>
+          <td><Link to={'/dealer/'+dealer['id']}>{dealer['full_name']}</Link></td>
           <td>{dealer['city']}</td>
           <td>{dealer['address']}</td>
           <td>{dealer['zip']}</td>
