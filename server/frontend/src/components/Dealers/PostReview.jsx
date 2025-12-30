@@ -39,13 +39,13 @@ const PostReview = () => {
 
     let jsoninput = JSON.stringify({
       "name": name,
-      "dealership": id,
+      "dealership": parseInt(id),
       "review": review,
       "purchase": true,
       "purchase_date": date,
       "car_make": make_chosen,
       "car_model": model_chosen,
-      "car_year": year,
+      "car_year": parseInt(year),
     });
 
     console.log(jsoninput);
@@ -62,7 +62,7 @@ const PostReview = () => {
   if (json.status === 200) {
       navigate(`/dealer/${id}`);
   } else {
-      alert("Failed to post review");
+      alert("Failed to post review: " + json.status + " - " + (json.message || "Unknown error"));
   }
 
   }
