@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import "./Dealers.css";
 import "../assets/style.css";
 import positive_icon from "../assets/positive.png"
@@ -72,6 +72,7 @@ return(
       <div style={{marginTop:"10px"}}>
       <h1 style={{color:"grey"}}>{dealer.full_name}{postReview}</h1>
       <h4  style={{color:"grey"}}>{dealer['city']},{dealer['address']}, Zip - {dealer['zip']}, {dealer['state']} </h4>
+      <Link to={`/searchcars/${id}`} style={{marginLeft:"10px"}}>Search Cars</Link>
       </div>
       <div class="reviews_panel">
       {reviews.length === 0 && unreviewed === false ? (
